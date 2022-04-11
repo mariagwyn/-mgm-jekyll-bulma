@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "mgm-jekyll-bulma"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Maria McDowell"]
   spec.email         = ["mariagwyn@gmail.com"]
 
