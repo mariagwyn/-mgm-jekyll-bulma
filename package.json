@@ -1,6 +1,6 @@
 {
-  "name": "bulma-clean-theme",
-  "description": "This is a clean and simple Jekyll Theme built with the Bulma framework, providing a modern looking site to start with.",
+  "name": "mgm-jekyll-bulma",
+  "description": "This is a Jekyll Theme built with the Bulma framework.",
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {},
