@@ -1,16 +1,20 @@
 {
-  "name": "mgm-jekyll-bulma",
-  "description": "This is a Jekyll Theme built with the Bulma framework.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
+  "name": "mgm-bulma-jekyll",
+  "version": "0.1.0",
+  "description": "Bulma for Jekyll on MariaGwyn's sites.",
+  "main": "_sass/app.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "chrisrhymes",
+  "author": "Maria McDowell",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "bulma": "^0.9.3",
-    "bulma-block-list": "^0.6"
+    "node-sass": "^7.0.1"
+  },
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url _sass/app.scss assets/css/app.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
   }
 }
