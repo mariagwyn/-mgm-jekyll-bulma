@@ -1,0 +1,11 @@
+- name: Home
+  link: /
+- name: About
+  link: /about/
+- name: Archive
+  link: /archive
+  dropdown:
+    - name: by year
+      link: /archive/
+    - name: by tag
+      link: /archive/tag

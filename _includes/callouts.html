@@ -1,11 +1,13 @@
 {% if page.callouts %}
     {% assign callouts=site.data.[page.callouts] %}
-    <section class="hero {% if callouts.height %} {{ callouts.height }} {% else %} is-medium {% endif %} {{ callouts.style }}">
+    <section class="hero {% if callouts.height %} {{ callouts.height }} {% else %} is-medium {% endif %} {{ callouts.style }}" {% if callouts.hero_image %} style="background-image: url('{{ callouts.hero_image }}');" {% endif %}>
         <div class="hero-body">
             <div class="container">
-                <div class="columns is-multiline is-centered">
+                <div class="columns is-multiline is-centered callouts">
                     {% for callout in callouts.items %}
-                        <div class="column is-4 has-text-centered">
+                        <div class="column {% if callout.columns %} is-{{ callout.columns }} {% else %}is-4{% endif %} {% if callout.class %}{{ callout.class }}{% else %} {% endif %} has-text-centered">
+                          <a href="{{ callout.link }}" class="callout">
+                          <div class="solid"></div>
                             {% if callout.icon %}
                             <div class="icon callout-icon">
                             {% if callout.icon_brand %}
@@ -15,9 +17,10 @@
                             {% endif %}
                             </div>
                             {% endif %}
-                            <p class="title is-5">{{ callout.title }}</p>
-                            <p class="subtitle is-5">{{ callout.subtitle }}</p>
-                            
+                            <p class="title is-4">{{ callout.title }}</p>
+                            {% if callout.subtitle %}
+                              <p class="subtitle is-5">{{ callout.subtitle }}</p>
+                            {% endif %}
                             {% if callout.description %}
                             <div class="content">
                                 <p>{{ callout.description | newline_to_br }}</p>
@@ -25,10 +28,9 @@
                             {% endif %}
 
                             {% if callout.call_to_action_name %}
-                            <a href="{{ callout.call_to_action_link | relative_url }}" class="button is-primary">
-                                {{ callout.call_to_action_name }}
-                            </a>
+
                             {% endif %}
+                          </a>
                         </div>
                     {% endfor %}
                 </div>
@@ -36,4 +38,3 @@
         </div>
     </section>
 {% endif %}
-

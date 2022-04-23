@@ -1,0 +1,14 @@
+---
+layout: page
+permalink: /archive/
+title: All The Things (by Year)
+hero_image: /assets/images/hero-default.jpg
+hero_height: is small
+---
+{% assign grouped_posts = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for year in grouped_posts %}
+  <h3>{{ year.name }}</h3>
+    {% for post in year.items %}
+    {% include archive-listing.html %}
+    {% endfor %}
+{% endfor %}

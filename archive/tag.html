@@ -1,0 +1,63 @@
+---
+layout: page
+permalink: /archive/tag
+title: All The Things (by tag)
+hero_image: /assets/images/chi.jpg
+hero_height: is-fullwidth
+---
+
+{% comment %} Creates an empty array {% endcomment %}
+{% assign tags = "" | split:"" %}
+{% comment %}Creates an array of tags names{% endcomment %}
+{% for tag in site.tags %}
+  {% assign tags = tags | push: tag[0] %}
+{% endfor %}
+{% assign alphaTags = tags | sort_natural %}
+
+<h2 id="tags">Tags</h2>
+<div class="columns">
+	<div class="column">
+		<h3>alphabetical</h3>
+		<div class="tag-list">
+			{% for tag in alphaTags %}
+			  <a class="tag" href="#{{tag}}">{{ tag }}&nbsp;({{ site.tags[tag].size }})</a>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="column">
+		<h3>by post count</h3>
+		{% capture tags %}
+		  {% for tag in site.tags %}
+		    {{ tag[1].size | plus: -10000 }}###{{ tag[0] | replace: ' ', '##' }}###{{ tag[1].size }}
+		  {% endfor %}
+		{% endcapture %}
+
+		{% assign countedTags = tags | split: ' ' | sort %}
+		{% for countedTag in countedTags %}
+		    {% assign items = countedTag | split: '###' %}
+		    {% assign tag = items[1] | replace: '##', ' ' %}
+		    {% assign count = items[2] | plus: 0 %}
+		    {% if count > 5 %}
+		        {% assign size = 5 %}
+		    {% else %}
+		        {% assign size = count %}
+		    {% endif %}
+		    <span class="tag-size-{{ size }}">
+		        <a class="tag" href="#{{ tag | slugify }}" rel="tag">{{ tag }}&nbsp;({{ count }})</a>
+		    </span>
+		{% endfor %}
+	</div>
+</div>
+
+
+<h2 id="tags">Posts by Tag</h2>
+{% assign alphaTags = site.tags | sort %}
+{% for tag in alphaTags %}
+<section class="posts-by-tag">
+  <h3 id="{{ tag[0] }}">{{ tag[0] }}</h3>
+  {% for post in tag[1] %}
+  	{% include archive-listing.html %}
+  {% endfor %}
+  <p class="has-text-right"><a href="#" class="internal-link">All Tags &#8593;</a></p>
+</section>
+{% endfor %}

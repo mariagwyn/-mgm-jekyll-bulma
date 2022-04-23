@@ -1,0 +1,90 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Dei Profundis
+email: mariagwyn@gmail.com
+name:          Dei Profundis | Maria Gwyn McDowell
+description: >- # this means to ignore newlines until "baseurl:"
+  Dei Profundis is the primary blog of <a href="http://mariagwyn.com/">Maria Gwyn McDowell</a>. Started in 2005, it is a personal theological and exploration into or out of the depths of life in God.
+author: Maria Gwyn McDowell
+author-image: /assets/images/author-picture.jpg
+copyright:     Copyright (c) 2022 | Maria Gwyn McDowell | All rights reserved
+image-localpath: /assets/images/
+image-baseurl: https://s3-us-west-2.amazonaws.com/mariagwyn-media/images/
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://deiprofundis.org" # the base hostname & protocol for your site, e.g. http://example.com
+email:         mariagwyn@gmail.com
+
+# Social Media
+github:           mariagwyn
+facebook:         mariagwyn
+linkedin:   maria-mcdowell-29593218
+soundcloud:       mariagwyn
+twitter:          mariagwyn
+youtube:          mariagwyn
+
+defaults:
+  -
+    scope:
+       path: ""
+    values:
+      author: "Maria Gwyn McDowell"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      show_sidebar: false
+      hero_image: hero-default.jpg
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      hero_image: hero-default.jpg
+      image: /assets/images/hero-default.jpg
+      show_sidebar: true
+      post-listlong: false
+
+# Build settings
+theme: mgm-bulma-jekyll
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

@@ -1,6 +1,5 @@
-<footer class="footer">
+<footer class="footer dumbotron">
     <div class="container">
-        
         {% if site.footer_menu %}
         <div class="columns is-multiline">
             {% for item in site.data[site.footer_menu] %}
@@ -12,9 +11,13 @@
             {% endfor %}
         </div>
         {% endif %}
-
+        <div class="columns">
+          {% include callout_subscribes.html %}
+          {% include callout_socialmedia.html %}
+          {% include callout_colophon.html %}
+        </div>
         <div class="content is-small has-text-centered">
-            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+            <p class="">This site is built with <a href="https://github.com/jekyll/jekyll">Jekyll</a> and <a href="https://pages.github.com/">hosted on github</a>. The base theme uses the <a href="https://bulma.io/">Bulma CSS framework</a>, with the help of <a href="https://www.csrhymes.com">Bulma Clean Theme</a></p>
         </div>
     </div>
 </footer>

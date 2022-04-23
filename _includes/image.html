@@ -1,0 +1,11 @@
+<figure class="image {{ include.ratio | default: is-16by9 }}">
+    {% if include.remote %}
+        <img src="{{ site.image-baseurl | absolute_url }}{{ include.src }}" alt="{{ include.alt }}">
+    {% else %}
+        <img src="{{ site.image-localpath | absolute_url }}/{{ include.src}}" alt="{{ include.alt }}">
+    {% endif %}
+    {% if include.alt %}
+    <span class="title">{{ include.alt }}</span>
+    <div class="attribution">{{ include.attribution }}</div>
+    {% endif %}
+</figure>
